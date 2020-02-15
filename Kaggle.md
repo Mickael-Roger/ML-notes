@@ -96,6 +96,10 @@ This is a decision tree. The more level (leaves) we use in the decision tree, th
 
 Is the house has more than 2 bed? Yes, price is x. No price is y
 
+### Overfitting vs Underfitting
+
+- Overfitting: capturing spurious patterns that won't recur in the future, leading to less accurate predictions, or
+- Underfitting: failing to capture relevant patterns, again leading to less accurate predictions.
 
 
 
