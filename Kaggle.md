@@ -102,7 +102,22 @@ Is the house has more than 2 bed? Yes, price is x. No price is y
 - Underfitting: failing to capture relevant patterns, again leading to less accurate predictions.
 
 
+### RandomForestRegressor
+DecisionTreeRegressor with a lots of leaf tends to overfit and with low leafs, it tends to underfit.
 
+RandomForest use the decision tree regressor but with many trees and makes predictions by averaging the prediction of each component tree.
+
+```python
+
+from sklearn.ensemble import RandomForestRegressor
+from sklearn.metrics import mean_absolute_error
+
+forest_model = RandomForestRegressor(random_state=1)
+forest_model.fit(train_X, train_y)
+melb_preds = forest_model.predict(val_X)
+print(mean_absolute_error(val_y, melb_preds))
+
+```
 
 
 
