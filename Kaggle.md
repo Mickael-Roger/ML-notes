@@ -47,3 +47,69 @@ print(melbourne_model.predict(X.head()))    # Predict for the first 5 house in t
 # Forth setp : Evaluate
 
 ```
+
+### Validate the model
+
+Mean Absolute Error (MAE) is one of the metric used to evaluate a model quality.
+
+error = actual - predicted -> Average error per prediction
+
+```python
+from sklearn.metrics import mean_absolute_error
+
+predicted_home_prices = melbourne_model.predict(X)
+mean_absolute_error(y, predicted_home_prices)
+
+```
+
+### Split data into train and test dataset 
+
+```python
+from sklearn.model_selection import train_test_split
+
+train_X, val_X, train_y, val_y = train_test_split(X, y, random_state = 0)
+
+# Define model
+melbourne_model = DecisionTreeRegressor()
+# Fit model
+melbourne_model.fit(train_X, train_y)
+
+# get predicted prices on validation data
+val_predictions = melbourne_model.predict(val_X)
+print(mean_absolute_error(val_y, val_predictions))
+
+```
+
+## Definitions
+### Overfitting
+A model matches the training data almost perfectly, but does poorly in validation and other new data
+
+### Underfitting
+When a model fails to capture important distinctions and patterns in the data, so it performs poorly even in training data, that is called underfitting.
+
+### Model evaluation
+We look for the best value between underfitting and overfitting.
+![Overfitting vs Underfitting](http://i.imgur.com/2q85n9s.png "")
+
+### DecisionTreeRegressor
+This is a decision tree. The more level (leaves) we use in the decision tree, the more we move from underfitting area to overfitting area. For instance, if we have only one level, it could be a simple tree like this:
+
+Is the house has more than 2 bed? Yes, price is x. No price is y
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
